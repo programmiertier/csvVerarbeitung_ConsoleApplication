@@ -26,10 +26,8 @@ namespace csvVerarbeitung_ConsoleApplication
 
             // alle vorhandenen Orte nennen
 
-            /*var alleOrte = (from alles in dieDaten.ortsangaben select alles.ort).Distinct();      // select distinct in SQL
-            foreach ( var item in alleOrte )*/
-            foreach ( var item in 
-                (from alles in dieDaten.ortsangaben select alles.ort).Distinct())  // das selbe wie oben, nur anders geschrieben
+            var alleOrte = (from alles in dieDaten.ortsangaben orderby alles.ort select alles.ort).Distinct();  
+            foreach ( var item in alleOrte )
             {
                 WriteLine(item);
             }
