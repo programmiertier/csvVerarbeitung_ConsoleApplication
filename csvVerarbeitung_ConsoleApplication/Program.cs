@@ -26,7 +26,9 @@ namespace csvVerarbeitung_ConsoleApplication
 
             // alle vorhandenen Orte nennen
 
-            var alleOrte = (from alles in dieDaten.ortsangaben orderby alles.ort select alles.ort).Distinct();  
+            // macht das selbe
+            // var alleOrte = (from alles in dieDaten.ortsangaben orderby alles.ort select alles.ort).Distinct();
+            var alleOrte = (from alles in dieDaten.ortsangaben select alles.ort).Distinct().OrderBy(platzhalter => platzhalter);
             foreach ( var item in alleOrte )
             {
                 WriteLine(item);
